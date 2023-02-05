@@ -8,7 +8,7 @@ import lombok.ToString;
 @Data
 @Entity
 @RequiredArgsConstructor
-@Table(name = "addresses")
+@Table(name = "addresses_hw37")
 public class Address {
 
     @Id

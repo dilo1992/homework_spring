@@ -3,6 +3,7 @@ package by.lobov.config;
 import by.lobov.entity.HW37.Address;
 import by.lobov.entity.HW37.Course;
 import by.lobov.entity.HW37.Student;
+import by.lobov.entity.HW38.StudentForHw38;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -13,10 +14,12 @@ import org.springframework.context.annotation.Configuration;
 
 import java.util.Properties;
 
+
 @Configuration
 @RequiredArgsConstructor
 public class SessionConfig {
     private final HibernateConfig config;
+    private Long count;
 
     @Bean
     public SessionFactory getSessionFactory() {
@@ -31,6 +34,8 @@ public class SessionConfig {
             configuration.addAnnotatedClass(Address.class);
             configuration.addAnnotatedClass(Course.class);
             configuration.addAnnotatedClass(Student.class);
+
+            configuration.addAnnotatedClass(StudentForHw38.class);
 
             //для получения sessionFactory нужно так делать (это фабрика сессий)
             ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
@@ -62,7 +67,7 @@ public class SessionConfig {
 
         settings.put(AvailableSettings.CURRENT_SESSION_CONTEXT_CLASS, "thread");
 
-        settings.put(AvailableSettings.HBM2DDL_AUTO, "create-drop"); //update, none
+//        settings.put(AvailableSettings.HBM2DDL_AUTO, "create-drop"); //update, none
         // Как только мы запустим приложение
         // У нас запустятся и создадутся все таблицы и значения. Эьа команда create drop означает чтоб
         // он по началу работы создал все таблицы по аналогии с классами которые мы написали, а после
@@ -70,7 +75,7 @@ public class SessionConfig {
         //если поставить none - то hibernate без нас не сможет менять таблицы (по дефолту оно стоит)
         // (на промышленных проектах)
 
-//        settings.put(AvailableSettings.HBM2DDL_AUTO, "update"); //ЗАНЯТИЕ 43
+        settings.put(AvailableSettings.HBM2DDL_AUTO, "update"); //ЗАНЯТИЕ 43
 
         return settings;
     }

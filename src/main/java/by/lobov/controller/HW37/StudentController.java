@@ -19,7 +19,7 @@ public class StudentController {
     public final StudentRepository repository;
 
     @GetMapping
-    public String test() {
+    public String homework37() {
 
         Student firstStudent = new Student();
         firstStudent.setName("Dima");
@@ -42,8 +42,6 @@ public class StudentController {
         course.setSpecialization("IT");
 
         course.addStudentsInCourse(firstStudent);
-
-
 
         course.addStudentsInCourse(secondStudent);
         repository.save(firstStudent);

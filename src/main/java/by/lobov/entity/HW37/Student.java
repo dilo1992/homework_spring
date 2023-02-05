@@ -7,7 +7,7 @@ import lombok.*;
 @Data
 @NoArgsConstructor
 @Entity
-@Table(name = "students")
+@Table(name = "students_hw37")
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
