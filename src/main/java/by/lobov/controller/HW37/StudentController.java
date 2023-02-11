@@ -48,6 +48,6 @@ public class StudentController {
         repository.save(secondStudent);
         log.info("Saved firstStudent: {}", firstStudent);
         log.info("Saved secondStudent: {}", secondStudent);
-        return "index";
+        return "findStudentById";
     }
 }
