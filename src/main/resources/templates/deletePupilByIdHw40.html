@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Удаление ученика</h2>
+
+<form th:action="@{/deletePupilById}" method="post" th:object="${pupil}">
+
+
+    <input type="text" th:field="*{id}"/>
+    <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></span>
+
+    <input type="submit" value="Submit"/>
+</form>
+</body>
+</html>

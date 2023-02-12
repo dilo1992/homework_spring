@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h2>Создание ученика</h2>
+
+<form th:action="@{/createNewPupil}" method="post" th:object="${pupil}">
+
+
+    <input type="text" th:field="*{name}"/>
+    <span th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+
+
+    <!--    поле для ввода значения course передаваемого объекта ${student}
+    в виде выпадающего списка-->
+<!--    <select th:size="5" th:field="*{course}">-->
+<!--        <option th:each="course:${listOfCourses}"-->
+<!--                th:value="${course}" th:text="${course}">-->
+<!--        </option>-->
+<!--    </select>-->
+
+    <input type="text" th:field="*{course}"/>
+    <span th:if="${#fields.hasErrors('course')}" th:errors="*{course}"></span>
+
+    <input type="submit" value="Submit"/>
+</form>
+</body>
+</html>
