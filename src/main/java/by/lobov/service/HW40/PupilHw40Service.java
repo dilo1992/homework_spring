@@ -2,12 +2,10 @@ package by.lobov.service.HW40;
 
 import by.lobov.entity.HW40.Pupil;
 import by.lobov.repository.HW40.PupilHw40Repository;
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 
 @Service
 @RequiredArgsConstructor
@@ -20,7 +18,7 @@ public class PupilHw40Service {
     }
 
     public Pupil findById(Long id) {
-        return repository.findById(id).orElseThrow(NoSuchElementException::new);
+        return repository.findById(id).orElseThrow();
     }
 
     public List<Pupil> findByCourse(int course) {
@@ -28,6 +26,9 @@ public class PupilHw40Service {
     }
 
     public void save(Pupil pupil) {
+        if (pupil.getCourse() == null || pupil.getName() == null) {
+            throw new NullPointerException("Student cannot not have course");
+        }
         repository.save(pupil);
     }
 

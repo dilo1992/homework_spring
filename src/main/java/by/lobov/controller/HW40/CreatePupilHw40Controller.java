@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BeanPropertyBindingResult;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
@@ -29,15 +28,10 @@ public class CreatePupilHw40Controller {
     }
 
     @PostMapping
-    public String createPupil(@Valid Pupil pupil, Model model, SessionStatus status, BindingResult result, BeanPropertyBindingResult beanPropertyBindingResult) {
+    public String createPupil(@Valid Pupil pupil, BindingResult result, Model model, SessionStatus status) {
         if (result.hasErrors()) {
             log.info("Pupil is incorrect: {}", result.getAllErrors());
             model.addAttribute("org.springframework.validation.BindingResult.pupil", result);
-            model.addAttribute("allPupils", service.findAll());
-            return "createPupilsHw40";
-        } else if (beanPropertyBindingResult.hasErrors()) {
-            log.info("Pupil is incorrect: {}", beanPropertyBindingResult.getAllErrors());
-            model.addAttribute("org.springframework.validation.BindingResult.pupil", beanPropertyBindingResult);
             model.addAttribute("allPupils", service.findAll());
             return "createPupilsHw40";
         }
@@ -47,7 +41,7 @@ public class CreatePupilHw40Controller {
         status.setComplete();
 
         pupil.setName("");
-        pupil.setCourse(0L);
+        pupil.setCourse(null);
         return "createPupilsHw40";
     }
 

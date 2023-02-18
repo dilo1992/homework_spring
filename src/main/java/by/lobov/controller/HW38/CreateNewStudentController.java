@@ -9,7 +9,6 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.bind.support.SessionStatus;
 
@@ -35,16 +34,15 @@ public class CreateNewStudentController {
         //из формы отправились параметры, и мы их достали (как в сервлете req.getParameter)
         if (result.hasErrors()) {
             log.info("Student is incorrect: {}", result.getAllErrors());
-            log.info("oops: {}", result.getAllErrors());
             model.addAttribute("org.springframework.validation.BindingResult.student", result);
             model.addAttribute("allStudents", service.findAll());
-            //model.addAttribute("listOfCourses", Arrays.stream(CoursesForHw38.values()).toList());
+            model.addAttribute("listOfCourses", Arrays.stream(CoursesForHw38.values()).toList());
             return "createStudent";
         }
         log.info("student is correct: {}", student);
         service.save(new StudentForHw38(0L, student.getName(), student.getCourse()));
         model.addAttribute("allStudents", service.findAll());
-//        model.addAttribute("listOfCourses", Arrays.stream(CoursesForHw38.values()).toList());
+        model.addAttribute("listOfCourses", Arrays.stream(CoursesForHw38.values()).toList());
 
         status.setComplete();
 
