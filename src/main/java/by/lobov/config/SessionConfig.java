@@ -3,6 +3,7 @@ package by.lobov.config;
 import by.lobov.entity.HW37.Address;
 import by.lobov.entity.HW37.Course;
 import by.lobov.entity.HW37.Student;
+import by.lobov.entity.HW38.CountOfVisitHw38;
 import by.lobov.entity.HW38.StudentForHw38;
 import lombok.RequiredArgsConstructor;
 import org.hibernate.SessionFactory;
@@ -36,6 +37,7 @@ public class SessionConfig {
             configuration.addAnnotatedClass(Student.class);
 
             configuration.addAnnotatedClass(StudentForHw38.class);
+//            configuration.addAnnotatedClass(CountOfVisitHw38.class);
 
             //для получения sessionFactory нужно так делать (это фабрика сессий)
             ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()

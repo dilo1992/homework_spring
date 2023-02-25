@@ -30,7 +30,7 @@ public class StudentRepository {
     }
 
     public Optional<Student> findById(Long id) {
-        Student student = null;
+        Student student;
         try (Session session = factory.openSession()) {
             student = session.find(Student.class, id);
         }

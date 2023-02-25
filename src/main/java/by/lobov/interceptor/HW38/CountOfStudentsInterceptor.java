@@ -1,17 +1,28 @@
 package by.lobov.interceptor.HW38;
 
+import by.lobov.entity.HW38.CountOfVisitHw38;
 import by.lobov.entity.HW38.StudentForHw38;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Data
 @Slf4j
+@RequiredArgsConstructor
 public class CountOfStudentsInterceptor implements HandlerInterceptor {
+
+    @Autowired
+    private CountOfVisitHw38 getCountOfVisit;
 
     @Override
     //это то, что делает перехватчик до перехода
@@ -30,5 +41,7 @@ public class CountOfStudentsInterceptor implements HandlerInterceptor {
         } else {
             log.info("students are not found in the model");
         }
+        getCountOfVisit.incrementAndGetCount();
+
     }
 }

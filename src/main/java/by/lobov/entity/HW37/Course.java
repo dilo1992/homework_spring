@@ -15,14 +15,13 @@ import java.util.List;
 public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_course")
     private Long id;
 
-    @Column
+    @Column(name = "specialization")
     private String specialization;
 
-    @Column
-    private int countOfStudents;
+    @Column(name = "count_of_students")
+    private Integer countOfStudents;
 
     @OneToMany(mappedBy = "course", fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
     @ToString.Exclude

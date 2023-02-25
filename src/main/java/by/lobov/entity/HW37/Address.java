@@ -13,10 +13,9 @@ public class Address {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JoinColumn(name = "id_address")
     private Long id;
 
-    @Column
+    @Column(name = "address")
     private String address;
 
     @OneToOne(mappedBy = "address", cascade = CascadeType.PERSIST)

@@ -11,7 +11,6 @@ import lombok.*;
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @JoinColumn(name = "id")
     private Long id;
 
     @Column(name = "name")
