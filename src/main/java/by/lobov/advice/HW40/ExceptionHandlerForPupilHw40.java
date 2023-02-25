@@ -1,6 +1,6 @@
 package by.lobov.advice.HW40;
 
-import by.lobov.annotation.AnnotationForExceptionHandlerForPupilHw40Controllers;
+import by.lobov.annotation.AnnotationForExceptionHandlerForPupilHw40;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 import java.util.NoSuchElementException;
 
-@ControllerAdvice(annotations = AnnotationForExceptionHandlerForPupilHw40Controllers.class)
+@ControllerAdvice(annotations = AnnotationForExceptionHandlerForPupilHw40.class)
 @Slf4j
-public class ExceptionHandlerForPupilHw40Controllers {
+public class ExceptionHandlerForPupilHw40 {
 
     @ResponseStatus(HttpStatus.NOT_FOUND)
     @ExceptionHandler(NoSuchElementException.class)

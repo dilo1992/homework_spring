@@ -7,7 +7,7 @@
 <body>
 <h2>Создание ученика</h2>
 
-<form th:action="@{/createNewPupil}" method="post" th:object="${pupil}">
+<form th:action="@{/pupil/createNewPupil}" method="post" th:object="${pupilForCreate}">
 
 
     <input type="text" th:field="*{name}"/>

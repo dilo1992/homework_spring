@@ -7,13 +7,12 @@
 <body>
 <h2>Удаление ученика</h2>
 
-<form th:action="@{/deletePupilById}" method="post" th:object="${pupil}">
+<form th:action="@{/pupil/deletePupilById/id}" method="get"/>
 
+<label th:for="id">id</label>
+<input th:name="id" type="text" th:id="id"/>
 
-    <input type="text" th:field="*{id}"/>
-    <span th:if="${#fields.hasErrors('id')}" th:errors="*{id}"></span>
-
-    <input type="submit" value="Submit"/>
+<input type="submit" value="Submit"/>
 </form>
 </body>
 </html>

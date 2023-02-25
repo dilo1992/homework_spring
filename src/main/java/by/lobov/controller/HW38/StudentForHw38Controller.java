@@ -1,7 +1,7 @@
 package by.lobov.controller.HW38;
 
 
-import by.lobov.annotation.AnnotationForExceptionHandlerForStudentHw38Controller;
+import by.lobov.annotation.AnnotationForExceptionHandlerForStudentHw38;
 import by.lobov.entity.HW38.CountOfVisitHw38;
 import by.lobov.entity.HW38.StudentForHw38;
 import by.lobov.service.HW38.StudentForHw38Service;
@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("studentsHW38")
 @RequiredArgsConstructor
 @SessionAttributes("student")
-@AnnotationForExceptionHandlerForStudentHw38Controller
+@AnnotationForExceptionHandlerForStudentHw38
 public class StudentForHw38Controller {
 
     public final StudentForHw38Service service;

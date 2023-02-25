@@ -1,6 +1,6 @@
 package by.lobov.advice.HW38;
 
-import by.lobov.annotation.AnnotationForExceptionHandlerForStudentHw38Controller;
+import by.lobov.annotation.AnnotationForExceptionHandlerForStudentHw38;
 import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 
 import java.util.NoSuchElementException;
 
-@ControllerAdvice(annotations = AnnotationForExceptionHandlerForStudentHw38Controller.class)
+@ControllerAdvice(annotations = AnnotationForExceptionHandlerForStudentHw38.class)
 @Slf4j
 public class ExceptionHandlerForStudentHw38Controller {
 
